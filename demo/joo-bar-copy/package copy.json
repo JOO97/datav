@@ -1,0 +1,208 @@
+{
+  "name": "@joo-cpns/joo-bar",
+  "version": "0.0.1",
+  "dependencies": {
+    "bcore": "0.0.18",
+    "jquery": "2.1.4",
+    "lodash": "4.6.1"
+  },
+  "datav": {
+    "cn_name": "bar",
+    "icon": "",
+    "protocol": 2,
+    "supportTheme": true,
+    "type": [
+      "regular"
+    ],
+    "view": {
+      "width": "400",
+      "height": "200",
+      "minWidth": "200",
+      "minHeight": "100"
+    },
+    "apis": {
+      "source": {
+        "handler": "render",
+        "description": "接口描述",
+        "fields": {
+          "x": {
+            "description": "类目",
+            "type": "string",
+            "optional": true
+          },
+          "y": {
+            "description": "值",
+            "type": "int"
+          }
+        }
+      }
+    },
+    "config": {
+      "size": {
+        "name": "字号",
+        "type": "number",
+        "default": 22,
+        "showInPanel": true,
+        "caption": "配置项标注",
+        "description": "配置项描述",
+        "range": [
+          10,
+          100
+        ]
+      },
+      "paxis": {
+        "type": "group",
+        "name": "标签",
+        "children": {
+          "dx": {
+            "type": "text",
+            "name": "标签距中心",
+            "default": 220
+          }
+        }
+      },
+      "title": {
+        "type": "group",
+        "name": "标题",
+        "children": {
+          "value": {
+            "hasVisibility": "true",
+            "visible": "true",
+            "type": "text",
+            "name": "标题名",
+            "default": "我是标题"
+          },
+          "font-size": {
+            "type": "number",
+            "name": "字体",
+            "min": 10,
+            "default": 32,
+            "max": 100
+          },
+          "text-align": {
+            "name": "对齐方式",
+            "type": "select",
+            "options": [
+              {
+                "name": "左对齐",
+                "value": "left"
+              },
+              {
+                "name": "右对齐",
+                "value": "right"
+              },
+              {
+                "name": "居中对齐",
+                "value": "center"
+              }
+            ],
+            "default": "center"
+          },
+          "color": {
+            "name": "字体颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          "background-color": {
+            "name": "背景",
+            "type": "color",
+            "default": "#000"
+          }
+        }
+      },
+      "custom": {
+        "name": "自定义配置",
+        "type": "tabs",
+        "default": [
+          {
+            "top": 3,
+            "left": 10
+          }
+        ],
+        "showInPanel": true,
+        "caption": "配置项标注",
+        "description": "配置项描述",
+        "handler": "handleCustomItem",
+        "col": 24,
+        "addable": true,
+        "valuePath": "chart.padding",
+        "template": {
+          "name": "系列<%= i + 1%>",
+          "description": "这是系列<%= i + 1%>",
+          "children": {
+            "top": {
+              "type": "stepper"
+            },
+            "left": {
+              "type": "stepper"
+            }
+          }
+        }
+      }
+    },
+    "api_data": {
+      "source": [
+        {
+          "x": "普货",
+          "y": 5
+        },
+        {
+          "x": "普货",
+          "y": 22
+        },
+        {
+          "x": "泡货",
+          "y": 22
+        },
+        {
+          "x": "设备",
+          "y": 14
+        },
+        {
+          "x": "矿产",
+          "y": 15
+        },
+        {
+          "x": "钢铁",
+          "y": 15
+        },
+        {
+          "x": "建材",
+          "y": 12
+        },
+        {
+          "x": "食品",
+          "y": 12
+        },
+        {
+          "x": "粮食",
+          "y": 28
+        }
+      ]
+    },
+    "events": {
+      "click": {
+        "description": "事件描述",
+        "fields": {
+          "value": {
+            "description": "值描述"
+          }
+        }
+      }
+    },
+    "publicHandler": {
+      "select": {
+        "name": "选择",
+        "description": "描述",
+        "type": "object",
+        "fields": {
+          "data": {
+            "name": "数据",
+            "type": "array",
+            "children": {}
+          }
+        }
+      }
+    }
+  }
+}
